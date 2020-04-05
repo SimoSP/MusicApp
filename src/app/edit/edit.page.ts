@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router,RouterEvent } from "@angular/router";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { SongService } from './../services/song.service';
 import { Song } from '../models/Song';
@@ -9,6 +9,30 @@ import { Song } from '../models/Song';
   styleUrls: ['./edit.page.scss'],
 })
 export class EditPage implements OnInit {
+  activePath = '';   
+  pages = [     
+    {      
+      name: 'Home',
+      path: '/home'    
+    },    
+    {      
+      name: 'About',      
+      path: '/about'    
+    },    
+    {      
+      name: 'Playlist',      
+      path: '/list'    
+    },    
+    {      
+      name: 'Add song',       
+      path: '/song'   
+     }  ,
+     {      
+      name: 'Edit song',       
+      path: '/edit'   
+     }  
+    ]
+    
   updateSongForm: FormGroup;
   id: any;
   Songs = [];
@@ -23,7 +47,11 @@ export class EditPage implements OnInit {
     this.aptService.getSong(this.id).valueChanges().subscribe(res => {
       this.updateSongForm.setValue(res);
     });
+    this.router.events.subscribe((event: RouterEvent) => 
+    {       this.activePath = event.url       
+    })  
    }
+   
 
   ngOnInit() {
     this.updateSongForm = this.fb.group({

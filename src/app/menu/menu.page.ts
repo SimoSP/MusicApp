@@ -11,19 +11,19 @@ export class MenuPage implements OnInit {
   pages = [     
     {      
       name: 'Home',
-      path: '/menu/home'    
+      path: '/home'    
     },    
     {      
       name: 'About',      
-      path: '/menu/about'    
+      path: '/about'    
     },    
     {      
       name: 'List',      
-      path: '/menu/list'    
+      path: '/list'    
     },    
     {      
       name: 'Song',       
-      path: '/menu/song'   
+      path: '/song'   
      }  
     ]
 

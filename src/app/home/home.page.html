@@ -6,5 +6,43 @@
     </ion-buttons>   
   </ion-toolbar>
 </ion-header>
+
+<ion-menu contentId="main-content" side="start">    
+  <ion-header>      
+    <ion-toolbar>        
+      <ion-title>Menu</ion-title>      
+    </ion-toolbar>    
+  </ion-header>    
+  <ion-content>      
+    <ion-list>        
+      <ion-menu-toggle auto-hide="false" *ngFor="let page of pages">
+        <ion-item [routerLink]="page.path" routerDirection="root" [class.active-menu]="activePath === page.path">            
+          {{page.name}}
+        </ion-item>         
+      </ion-menu-toggle>      
+    </ion-list>    
+  </ion-content>   
+</ion-menu>
+
+<ion-router-outlet id="main-content" main></ion-router-outlet>
 <ion-content>
+  <ion-text color="secondary">
+    <h1>Welcome to our Ionic Music App. In this app you can add your favourite songs to your playlists!</h1>
+    <p>
+      Home - home is home
+    </p>
+    <p>
+      Add song - in this page you can add your songs to the database
+    </p>
+    <p>
+      Edit - here you can edit your songs that you have already filled into database
+    </p>
+    <p>
+      Playlist - list of your songs in database
+    </p>
+    <p>
+      About - About the app and creators
+    </p>
+  </ion-text>
+  <ion-button type="submit" (click)="authService.SignOut()" expand="block">Logout</ion-button>
 </ion-content>

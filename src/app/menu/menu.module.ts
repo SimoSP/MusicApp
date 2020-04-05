@@ -10,7 +10,8 @@ const routes: Routes = [
      {     
        path: 'menu',    
        component: MenuPage,    
-       children: [       {        
+       children: [       
+         {        
          path: 'home',         
          loadChildren: '../home/home.module#HomePageModule'      
         },
