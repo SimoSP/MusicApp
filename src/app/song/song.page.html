@@ -1,11 +1,39 @@
-<ion-header>  
-  <ion-toolbar>    
-    <ion-title>Song page</ion-title>    
+
+<ion-header>
+  <ion-toolbar class="ios hydrated">
+    <ion-title class="ios title-ios hydrated">Add a new song</ion-title>
     <ion-buttons slot="start">      
       <ion-menu-button autoHide="false"></ion-menu-button>     
-    </ion-buttons>   
+    </ion-buttons> 
   </ion-toolbar>
 </ion-header>
-<ion-content>
 
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="songForm" (ngSubmit)="formSubmit()">
+      <ion-item>
+        <ion-label position="floating">Song Title</ion-label>
+        <ion-input formControlName="title" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Band</ion-label>
+        <ion-input formControlName="band" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Lyrics</ion-label>
+        <ion-input formControlName="lyrics" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block">Add</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
 </ion-content>
+ 

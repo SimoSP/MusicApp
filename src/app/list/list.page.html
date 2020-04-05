@@ -1,9 +1,41 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>list</ion-title>
+    <ion-title>
+      Song list
+    </ion-title>
+    <ion-buttons slot="start">      
+      <ion-menu-button autoHide="false"></ion-menu-button>     
+    </ion-buttons> 
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-</ion-content>
+  <ion-list class="ios list-ios hydrated">
+    <ion-list-header class="ios hydrated">
+      Added songs
+    </ion-list-header>
+    <div *ngFor="let item of details">
+      <p>{{Song.band}}</p>
+      </div>
+    <ion-item *ngFor="let song of Songs" class="user-list">
+      <ion-label>
+        <h5>
+          <ion-icon name="person"></ion-icon> {{song.title}}
+        </h5>
+        <p>
+          <ion-icon name="call"></ion-icon> {{song.band}}
+        </p>
+        <p>
+          <ion-icon name="call"></ion-icon> {{song.lyrics}}
+        </p>
+      </ion-label>
+      <div class="item-note" item-end>
+        <button ion-button clear [routerLink]="['/edit/', song.$key]">
+          <ion-icon name="create" style="zoom:2.0"></ion-icon>
+        </button>
+        <button ion-button clear (click)="deleteSongs(song.$key)">
+          <ion-icon name="trash" style="zoom:2.0"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>

@@ -1,17 +1,56 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { Song } from './../models/song';
-import { Band } from './../models/band';
+import { Song } from '../models/Song';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 
-export class SongsService {
-    private songListRef = this.db.list<Song>('song-list');
-    private bandListRef = this.db.list<Band>('band-list');
-    constructor(private db: AngularFireDatabase) {}
+@Injectable({
+  providedIn: 'root'
+})
 
-    getSongsList() {
-        return this.songListRef;
-    }
-    filterBystring(Band:string) {
-        return this.db.list('angular/fire/database')
-    }
+export class SongService {
+    
+    songListRef: AngularFireList<any>;
+    songRef: AngularFireObject<any>;
+  
+
+  constructor(private db: AngularFireDatabase) { }
+
+
+  // Create
+  createSong(sng: Song) {
+    return this.songListRef.push({
+      title: sng.title,
+      band: sng.band,
+      lyrics: sng.lyrics,
+    })
+    
+  }
+  // Get Single
+  getSong(id: string) {
+    this.songRef = this.db.object('/Songs/' + id);
+    return this.songRef;
+  }
+
+  // Get List
+  getSongList() {
+    this.songListRef = this.db.list('/Songs');
+    return this.songListRef;
+  }
+
+  // Update
+  updateSong(id, Song: Song) {
+    return this.songRef.update({
+        title: Song.title,
+        band: Song.band,
+        lyrics: Song.lyrics,
+    })
+  }
+
+  // Delete
+  deleteSong(id: string) {
+    this.songRef = this.db.object('/Songs/' + id);
+    this.songRef.remove();
+  }
+  private errorMgmt(error) {
+    console.log(error)
+  }
 }

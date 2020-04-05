@@ -33,6 +33,14 @@ const routes: Routes = [
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
 
   },
+  {
+    path: 'edit/:id',
+    loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
+  },
+  {
+    path: 'edit',
+    loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
+  },
 ];
 
 @NgModule({

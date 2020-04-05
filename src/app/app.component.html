@@ -1,3 +1,28 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+  <ion-tab-button routerLinkActive="tab-selected" routerLink="/home" class="ios" tab="home">
+    <ion-icon name="add-circle"></ion-icon>
+    <ion-label>Home</ion-label>
+  </ion-tab-button>
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/song" class="ios" tab="song">
+      <ion-icon name="list-box"></ion-icon>
+      <ion-label>Add song</ion-label>
+    </ion-tab-button>
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/edit" class="ios" tab="edit">
+      <ion-icon name="add-circle"></ion-icon>
+      <ion-label>Edit</ion-label>
+    </ion-tab-button>
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/list" class="ios" tab="list">
+      <ion-icon name="add-circle"></ion-icon>
+      <ion-label>See songs</ion-label>
+    </ion-tab-button>
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/about" class="ios" tab="about">
+      <ion-icon name="add-circle"></ion-icon>
+      <ion-label>About</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

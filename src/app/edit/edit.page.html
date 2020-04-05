@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar class="ios hydrated">
+    <ion-title class="ios title-ios hydrated">Edit songs</ion-title>
+    <ion-buttons slot="start">      
+      <ion-menu-button autoHide="false"></ion-menu-button>     
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ios list-ios hydrated">
+    <ion-list-header class="ios hydrated">
+      Added songs
+    </ion-list-header>
+    <div *ngFor="let item of details">
+      <p>{{Song.band}}</p>
+      </div>
+      
+    <ion-item *ngFor="let song of Songs" class="user-list">
+      <ion-label>
+        <h5>
+          <ion-icon name="person"></ion-icon> {{song.title}}
+        </h5>
+        <p>
+          <ion-icon name="call"></ion-icon> {{song.band}}
+        </p>
+        <p>
+          <ion-icon name="call"></ion-icon> {{song.lyrics}}
+        </p>
+        <p>
+          <ion-icon name="call"></ion-icon> {{song.$key}}
+        </p>
+      </ion-label>
+      <div class="item-note" item-end>
+        <button ion-button clear [routerLink]="['/edit/', song.$key]">
+          <ion-icon name="create" style="zoom:2.0"></ion-icon>
+        </button>
+        <button ion-button clear (click)="updateForm(song.$key)">
+          <ion-icon name="create" style="zoom:2.0"></ion-icon>
+        </button>
+        <button ion-button clear (click)="deleteSongs(song.$key)">
+          <ion-icon name="trash" style="zoom:2.0"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-list lines="full">
+    <form [formGroup]="updateSongForm" (ngSubmit)="updateForm()">
+      <ion-item>
+        <ion-label position="floating">Song Title</ion-label>
+        <ion-input formControlName="title" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Band</ion-label>
+        <ion-input formControlName="band" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Lyrics</ion-label>
+        <ion-input formControlName="lyrics" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block">Edit song</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+  
+
+
+
+
+  
+  
