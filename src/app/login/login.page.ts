@@ -1,3 +1,8 @@
+// Simo Partanen 1900414
+// Inessa Rif    1901057
+// Daniel Rif    1901058
+
+
 import { Component,OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AuthenticationService } from "../shared/authentication-service";
@@ -16,7 +21,7 @@ export class LoginPage implements OnInit {
   ) {}
 
   ngOnInit() {}
-
+  // Login function with email and password
   logIn(email, password) {
     this.authService.SignIn(email.value, password.value)
       .then((res) => {

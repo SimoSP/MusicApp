@@ -1,3 +1,7 @@
+// Simo Partanen 1900414
+// Inessa Rif    1901057
+// Daniel Rif    1901058
+
 import { Component, OnInit } from '@angular/core';
 import { Song } from '../models/Song';
 import { SongService } from './../services/song.service';
@@ -41,7 +45,7 @@ export class ListPage implements OnInit {
     {       this.activePath = event.url       
     })  
    }
-
+  // Fetching songs at the beginning
   ngOnInit() {
     this.fetchSongs();
     let songRes = this.aptService.getSongList();
@@ -54,13 +58,13 @@ export class ListPage implements OnInit {
       })
     })
   }
-
+  // Fetching songs
   fetchSongs() {
     this.aptService.getSongList().valueChanges().subscribe(res => {
       console.log(res)
     })
   }
-
+  // Also you can delete songs
   deleteSongs(id) {
     console.log(id)
     if (window.confirm('Do you really want to delete?')) {

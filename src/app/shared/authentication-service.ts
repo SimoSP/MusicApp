@@ -1,3 +1,7 @@
+// Simo Partanen 1900414
+// Inessa Rif    1901057
+// Daniel Rif    1901058
+// Authenticating user 
 import { Injectable, NgZone } from '@angular/core';
 import { auth } from 'firebase/app';
 import { User } from "./user";
@@ -58,7 +62,7 @@ export class AuthenticationService {
     })
   }
 
-  // Returns true when user is looged in
+  // Returns true when user is logged in
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;

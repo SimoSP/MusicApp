@@ -1,3 +1,7 @@
+// Simo Partanen 1900414
+// Inessa Rif    1901057
+// Daniel Rif    1901058
+
 import { Component, OnInit } from '@angular/core';
 import { Router,RouterEvent } from '@angular/router';
 import { FormGroup, FormBuilder } from "@angular/forms";
@@ -54,6 +58,7 @@ export class SongPage implements OnInit {
       lyrics: ['']
     })
   }
+  // Creating a new song by form
   formSubmit() {
     if (!this.songForm.valid) {
       return false;

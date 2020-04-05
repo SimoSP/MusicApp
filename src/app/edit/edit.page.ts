@@ -1,3 +1,7 @@
+// Simo Partanen 1900414
+// Inessa Rif    1901057
+// Daniel Rif    1901058
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router,RouterEvent } from "@angular/router";
 import { FormGroup, FormBuilder } from "@angular/forms";
@@ -72,6 +76,7 @@ export class EditPage implements OnInit {
     })
     
   }
+  // Update song
   updateForm() {
     this.aptService.updateSong(this.id, this.updateSongForm.value)
       .then(() => {
@@ -79,11 +84,13 @@ export class EditPage implements OnInit {
       })
       .catch(error => console.log(error));
   }
+  // Fetching songs from database
   fetchSongs() {
     this.aptService.getSong(this.id).valueChanges().subscribe(res => {
       console.log(res)
     })
   }
+  // Deleting song from database
   deleteSongs(id) {
     console.log(id)
     if (window.confirm('Do you really want to delete?')) {

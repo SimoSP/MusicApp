@@ -1,13 +1,14 @@
+// Simo Partanen 1900414
+// Inessa Rif    1901057
+// Daniel Rif    1901058
+
 <ion-header>
   <ion-toolbar class="ios hydrated">
     <ion-title class="ios title-ios hydrated">Edit songs</ion-title>
     <ion-buttons slot="start">      
       <ion-menu-button autoHide="false"></ion-menu-button>     
-    </ion-buttons> 
-    
-    
+    </ion-buttons>   
   </ion-toolbar>
-  
 </ion-header>
 <ion-menu contentId="main-content" side="start">    
   <ion-header>      
@@ -42,13 +43,13 @@
           <ion-icon name="person"></ion-icon> {{song.title}}
         </h5>
         <p>
-          <ion-icon name="call"></ion-icon> {{song.band}}
+          <ion-icon name="musical-note-outline"></ion-icon> {{song.band}}
         </p>
         <p>
-          <ion-icon name="call"></ion-icon> {{song.lyrics}}
+          <ion-icon name="musical-note-outline"></ion-icon> {{song.lyrics}}
         </p>
         <p>
-          <ion-icon name="call"></ion-icon> {{song.$key}}
+          <ion-icon name="musical-notes-outline"></ion-icon> {{song.$key}}
         </p>
       </ion-label>
       <div class="item-note" item-end>

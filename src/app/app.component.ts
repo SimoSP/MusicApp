@@ -1,3 +1,7 @@
+// Simo Partanen 1900414
+// Inessa Rif    1901057
+// Daniel Rif    1901058
+
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
